@@ -32,13 +32,17 @@
     a:hover { color: #7bdad8; }
 
     header {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      background: rgba(28, 37, 65, .95);
-      backdrop-filter: saturate(120%) blur(6px);
-      border-bottom: 1px solid rgba(255, 255, 255, .08);
-    }
+  position: fixed; /* change from sticky to fixed */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  background: rgba(28, 37, 65, .95);
+  backdrop-filter: saturate(120%) blur(6px);
+  border-bottom: 1px solid rgba(255, 255, 255, .08);
+  transition: top 0.3s ease; /* smooth hide/reveal */
+}
+
     nav .nav-links {
   transition: max-height 0.3s ease;
   overflow: hidden;
@@ -78,14 +82,25 @@
     }
 
     .hero {
+     
       max-width: 1100px;
       margin: 24px auto;
       display: grid;
       grid-template-columns: 1.2fr .8fr;
       gap: 22px;
-      align-items: start;
+      align-items: stretch;
       padding: 0 16px;
     }
+    /* Assuming your header height is roughly 60px */
+main.hero {
+  padding-top: 50px; /* 60px header + 20px extra gap */
+}
+@media (max-width: 700px) {
+  main.hero {
+    padding-top: 100px; /* more space for taller mobile header */
+  }
+}
+
 
     .card {
       background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
@@ -191,6 +206,29 @@
     display: block;
   }
 }
+/* Ensure main sections have breathing room */
+.hero > section,
+.hero > aside,
+.section {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+/* Optional: add a bit more space inside each card for clarity */
+.card.pad {
+  padding: 24px; /* increased slightly from 20px */
+}
+
+/* For smaller screens, keep spacing proportional */
+@media (max-width: 700px) {
+  .hero > section,
+  .hero > aside,
+  .section {
+    margin-top: 32px;
+    margin-bottom: 32px;
+  }
+}
+
 
 
     @media (max-width: 500px) {
@@ -217,6 +255,7 @@
     <ul class="nav-links" role="list">
       <li><a href="#facts">Quick Facts</a></li>
       <li><a href="#see">See & Do</a></li>
+      <li><a href="#history">History & Heritage</a></li>
       <li><a href="#culture">Culture</a></li>
       <li><a href="#travel">Getting Here</a></li>
       <li><a href="#gallery">Gallery</a></li>
@@ -244,25 +283,41 @@
   </section>
 
   <aside class="card pad" aria-label="Town vibe">
-    <h2>Vibe Check 🏞️</h2>
-    <p class="aside">Historic charm + airport city energy. Trek, picnic, or catch a plane — all in a single afternoon.</p>
+  <h2>Vibe Check 🏞️</h2>
+  <p class="aside">
+    Historic charm + airport city energy. Trek, picnic, or catch a plane — all in a single afternoon.  
+    Expect lush greenery, misty hills, and the occasional distant roar of a plane taking off.
+  </p>
 
-    <div class="progress">
-      <label for="heritageness">Heritage & Nature:</label>
-      <meter id="heritageness" min="0" max="100" value="75">75%</meter>
-    </div>
-    <div class="progress">
-      <label for="airportness">Airport Energy:</label>
-      <meter id="airportness" min="0" max="100" value="60">60%</meter>
-    </div>
+  <div class="progress">
+    <label for="heritageness">Heritage & Nature:</label>
+    <meter id="heritageness" min="0" max="100" value="75">75%</meter>
+  </div>
+  <div class="progress">
+    <label for="airportness">Airport Energy:</label>
+    <meter id="airportness" min="0" max="100" value="60">60%</meter>
+  </div>
+  <div class="progress">
+    <label for="adventure">Adventure & Trekking:</label>
+    <meter id="adventure" min="0" max="100" value="80">80%</meter>
+  </div>
+  <div class="progress">
+    <label for="relaxation">Peace & Relaxation:</label>
+    <meter id="relaxation" min="0" max="100" value="70">70%</meter>
+  </div>
 
-    <p class="small">Fun numbers updated <time datetime="2025-08-29">Aug 31, 2025</time>.</p>
+  <p class="aside">
+    Fun fact: Locals often plan weekend picnics to Pazhassi Dam or short treks to Palukachippara just to catch the sunset and hear the chenda drums in the distance.
+  </p>
 
-    <audio controls aria-label="Sample vibe audio">
-      <source src="assets/audio/airport-vibe.wav" type="audio/mpeg" />
-      Your browser doesn’t support audio. Imagine drum beats and plane sounds together.
-    </audio>
-  </aside>
+  <p class="small">Fun numbers updated <time datetime="2025-08-31">Aug 31, 2025</time>.</p>
+
+  <audio controls aria-label="Sample vibe audio">
+    <source src="assets/audio/airport-vibe.wav" type="audio/mpeg" />
+    Your browser doesn’t support audio. Imagine drum beats and plane sounds together.
+  </audio>
+</aside>
+
 </main>
 
 <section id="see" class="section">
@@ -301,6 +356,7 @@
 </section>
 
 <section id="history" class="section">
+
   <h2>History & Heritage</h2>
   <div class="grid cols-2">
 
@@ -392,27 +448,6 @@
     <p id="facts-note" class="small">Data compiled from official portals & travel references (see citations at bottom).</p>
   </section>
 
-  <!-- <section id="see" class="section">
-    <div class="grid cols-2">
-      <article class="card pad" aria-labelledby="see1">
-        <h2 id="see1">See & Do</h2>
-        <ul>
-          <li><strong>Palukachippara Viewpoint</strong> — 7–10 km from town; sunrise/airport views; mini‑trek vibes.</li>
-          <li><strong>Pazhassi Dam & Garden</strong> — scenic picnic spot on the Mattannur–Iritty route; boating & amphitheatre.</li>
-          <li><strong>Airport Spotting</strong> — café run + watch take‑offs on clear evenings.</li>
-          <li><strong>Temple Theyyam circuits</strong> — seasonal, dramatic, loud, unforgettable.</li>
-        </ul>
-        <blockquote cite="https://kannur.nic.in/en/mattannur-muncipality/">“Mattannur town is very nearest to Kannur International Airport.” — District Portal</blockquote>
-      </article>
-
-      <figure class="card pad" aria-labelledby="cap1">
-        <img src="assets/images/sun.jpg" alt="Golden sunset over hills near Kannur International Airport, Mattannur" width="100%" />
-        <figcaption id="cap1">Kannur International Airport sits right in Mattannur — the town’s star.
-        </figcaption>
-      </figure>
-    </div>
-  </section> -->
-<!--  -->
   <section id="culture" class="section">
     <div class="grid cols-3">
       <article class="card pad" aria-labelledby="cul1">
@@ -450,7 +485,7 @@
 
 
   <section class="gallery">
-  <h2>📸 Mattannur Moments</h2>
+  <h2>Gallery</h2>
   <p class="aside">Because one pic = 1000 words (and fewer assignments).</p>
   
   <div class="grid">
@@ -489,37 +524,40 @@
 
 
   <section id="map" class="section">
-    <div class="grid cols-2">
-      <article class="card pad" aria-labelledby="maph">
-        <h2 id="maph">Map</h2>
-        <p>Yes, the runway is practically our neighbor.</p>
-        <iframe title="Map: Kannur International Airport (Mattannur)" loading="lazy" 
-                referrerpolicy="no-referrer-when-downgrade" 
-                src="https://www.google.com/maps?q=Kannur%20International%20Airport,%20Mattannur&output=embed"
-                style="width:100%;height:280px;border:0;border-radius:14px"></iframe>
-        <p class="small">If the map doesn’t load on your college Wi‑Fi, pretend you saw planes.</p>
-      </article>
+  <div class="grid cols-2">
+    <article class="card pad" aria-labelledby="maph">
+      <h2 id="maph">Map</h2>
+      <p>Mattannur town — heritage, hills, and the airport nearby.</p>
+      <iframe 
+        title="Map: Mattannur Town, Kerala" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.google.com/maps?q=Mattannur,+Kerala&hl=en&z=14&output=embed"
+        style="width:100%;height:280px;border:0;border-radius:14px">
+      </iframe>
+      <p class="small">If the map doesn’t load on your college Wi‑Fi, pretend you saw hills and streets.</p>
+    </article>
 
-      <article class="card pad" aria-labelledby="climateh">
-  <h2 id="climateh">Micro-Climate</h2>
-  <p>Monsoon lover’s paradise. Expect <strong>humid</strong> days, lush greens, and an occasional dramatic rainbow over the hills.</p>
-  <table>
-    <caption class="small">Sample climate table (fill with local data if needed).</caption>
-    <thead>
-      <tr><th>Month</th><th>High (°C)</th><th>Low (°C)</th><th>Rain</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>Apr</td><td>33</td><td>25</td><td>☀️</td></tr>
-      <tr><td>May</td><td>32</td><td>25</td><td>⛅️</td></tr>
-      <tr><td>Jun</td><td>30</td><td>24</td><td>☔️☔️☔️</td></tr>
-      <tr><td>Jul</td><td>29</td><td>23</td><td>☔️☔️☔️☔️</td></tr>
-      <tr><td>Aug</td><td>29</td><td>23</td><td>☔️☔️☔️</td></tr>
-    </tbody>
-  </table>
-</article>
+    <article class="card pad" aria-labelledby="climateh">
+      <h2 id="climateh">Micro-Climate</h2>
+      <p>Monsoon lover’s paradise. Expect <strong>humid</strong> days, lush greens, and an occasional dramatic rainbow over the hills.</p>
+      <table>
+        <caption class="small">Sample climate table (fill with local data if needed).</caption>
+        <thead>
+          <tr><th>Month</th><th>High (°C)</th><th>Low (°C)</th><th>Rain</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Apr</td><td>33</td><td>25</td><td>☀️</td></tr>
+          <tr><td>May</td><td>32</td><td>25</td><td>⛅️</td></tr>
+          <tr><td>Jun</td><td>30</td><td>24</td><td>☔️☔️☔️</td></tr>
+          <tr><td>Jul</td><td>29</td><td>23</td><td>☔️☔️☔️☔️</td></tr>
+          <tr><td>Aug</td><td>29</td><td>23</td><td>☔️☔️☔️</td></tr>
+        </tbody>
+      </table>
+    </article>
+  </div>
+</section>
 
-    </div>
-  </section>
 
   <section class="section card pad" aria-labelledby="faq">
     <h2 id="faq">FAQ (real questions we asked ourselves)</h2>
@@ -600,6 +638,23 @@
 <button id="toTopBtn" aria-label="Scroll back to top"><i class="fas fa-arrow-up"></i></button>
 
 <script>
+  let lastScroll = 0;
+const header = document.querySelector('header');
+
+window.addEventListener('scroll', () => {
+  const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+  
+  if (currentScroll > lastScroll && currentScroll > 50) {
+    // Scrolling down
+    header.style.top = '-100px'; // hide header
+  } else {
+    // Scrolling up
+    header.style.top = '0';
+  }
+  
+  lastScroll = currentScroll;
+});
+
   // Hamburger toggle
   const hamburger = document.getElementById('hamburger');
   const navLinks = document.querySelector('nav ul.nav-links');
