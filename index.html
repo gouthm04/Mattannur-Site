@@ -109,6 +109,10 @@
       font-size: 12px;
       color: #e6eeff;
     }
+    #see article ul li {
+  margin-bottom: 1em; /* space between list items */
+  line-height: 1.5;   /* optional: makes text easier to read */
+}
 
     .grid { display: grid; gap: 16px; }
     .grid.cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -224,38 +228,132 @@
 
 <main id="home" class="hero">
   <section class="card pad" aria-labelledby="title">
-    <h1 id="title">Mattannur — Airport City with a Heartbeat</h1>
-    <p class="tagline"><em>Not your average town page:</em> spicy snacks, greener than your WhatsApp DP, and a runway just down the road.</p>
+    <h1 id="title">Mattannur — Gateway to Hills, History & Heartbeats</h1>
+    <p class="tagline"><em>Not your average town page:</em> lush greenery, historic spots, and a runway just down the road.</p>
     <div class="chips" aria-label="Highlights as chips">
-      <span class="chip">Kannur International Airport (IATA: <abbr title="Kannur International Airport">CNN</abbr>) is right here</span>
-      <span class="chip">On the Mattannur–Iritty route to Western Ghats</span>
+      <span class="chip">Pazhassi Dam & Garden — picnic, boating, and heritage strolls</span>
+      <span class="chip">Palukachippara viewpoint — sunrise & panoramic hills</span>
+      <span class="chip">Kannur International Airport (CNN) nearby</span>
       <span class="chip">Chenda beats by Padma Shri Mattannur Sankarankutty Marar</span>
-      <span class="chip">Palukachippara viewpoint sunsets</span>
     </div>
-    <p>Pronounced <strong>MA-ta-nnur</strong> (<abbr title="International Phonetic Alphabet">IPA</abbr>: /mʌt̪ːänur/). If Kerala is God’s Own Country, Mattannur is the gate with a drum solo.</p>
+    <p>Pronounced <strong>MA-ta-nnur</strong> (<abbr title="International Phonetic Alphabet">IPA</abbr>: /mʌt̪ːänur/). Kerala is God’s Own Country, and Mattannur is its mix of heritage, hills, and heartbeat.</p>
     <details>
       <summary>Show nerdy etymology / extra</summary>
       <p><small class="small">You’ll also see it spelled <code>Mattannoor</code>. It sits between Kannur, Thalassery and Iritty, acting as a road hub towards Kodagu (Coorg).</small></p>
     </details>
   </section>
 
-  <aside class="card pad" aria-label="Airport vibe">
-    <h2>Vibe Check ✈️</h2>
-    <p class="aside">Airport city energy + small-town chill. On a clear day, you can spot planes climbing over the hills.</p>
+  <aside class="card pad" aria-label="Town vibe">
+    <h2>Vibe Check 🏞️</h2>
+    <p class="aside">Historic charm + airport city energy. Trek, picnic, or catch a plane — all in a single afternoon.</p>
 
     <div class="progress">
-      <label for="airportness">Airportness:</label>
-      <meter id="airportness" min="0" max="100" value="82">82%</meter>
+      <label for="heritageness">Heritage & Nature:</label>
+      <meter id="heritageness" min="0" max="100" value="75">75%</meter>
+    </div>
+    <div class="progress">
+      <label for="airportness">Airport Energy:</label>
+      <meter id="airportness" min="0" max="100" value="60">60%</meter>
     </div>
 
     <p class="small">Fun numbers updated <time datetime="2025-08-29">Aug 31, 2025</time>.</p>
 
     <audio controls aria-label="Sample vibe audio">
       <source src="assets/audio/airport-vibe.wav" type="audio/mpeg" />
-      Your browser doesn’t support audio. Imagine thunder made musical.
+      Your browser doesn’t support audio. Imagine drum beats and plane sounds together.
     </audio>
   </aside>
 </main>
+
+<section id="see" class="section">
+  <h2>See & Do</h2>
+  <div class="grid cols-2">
+    <!-- Text / List -->
+    <article class="card pad" aria-labelledby="see1">
+      <h3 id="see1">Top Attractions & Activities</h3>
+      <ul>
+        <li><strong>Pazhassi Dam & Garden</strong> — scenic picnic spot on the Mattannur–Iritty route; boating, amphitheatre, and historic charm. Perfect for early morning walks or evening photography by the water.</li>
+        <li><strong>Palukachippara Viewpoint</strong> — mini-trek (7–10 km from town) with sunrise, airport, and hill views. Ideal for a quick nature escape or casual birdwatching.</li>
+        <li><strong>Airport Spotting</strong> — café run + watch take-offs on clear evenings. Locals say the golden hour is unbeatable for photos.</li>
+        <li><strong>Temple Theyyam Circuits</strong> — seasonal, dramatic, loud, unforgettable performances. Experience centuries-old rituals, vibrant costumes, and rhythm that will stay in your head.</li>
+      </ul>
+      <p><em>Pro tip:</em> combine a trek to Palukachippara with a sunset view over the hills, then stop at Pazhassi Dam for a peaceful night stroll.</p>
+      <blockquote cite="https://kannur.nic.in/en/mattannur-muncipality/">
+        “Mattannur town is very nearest to Kannur International Airport, yet surrounded by hills and heritage sites.” — District Portal
+      </blockquote>
+      <p>Local note: Many visitors underestimate how walkable and close these spots are — you can comfortably do two or three in a single day.</p>
+    </article>
+
+    <!-- Images -->
+    <div class="grid cols-1 gap-1">
+      <figure class="card pad" aria-labelledby="cap1">
+  <img src="assets/images/pazhassi-dam.jpg" alt="Pazhassi Dam near Mattannur" width="100%" />
+  <figcaption id="cap1">Pazhassi Dam — scenic spot for picnics, boating, and heritage strolls 🌊</figcaption>
+</figure>
+
+
+      <figure class="card pad" aria-labelledby="cap2">
+        <img src="assets/images/airport.png" alt="Golden sunset over hills near Kannur International Airport, Mattannur" width="100%" />
+        <figcaption id="cap2">Golden sunset near Kannur International Airport — a view worth the eye.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="history" class="section">
+  <h2>History & Heritage</h2>
+  <div class="grid cols-2">
+
+    <!-- Origins & Name -->
+    <article class="card pad" aria-labelledby="hist1">
+      <h3 id="hist1">Origins & Name</h3>
+      <figure>
+        <img src="assets/images/mattannur-hills-river.png" alt="Hills and river around Mattannur" width="100%">
+        <figcaption>Hills and rivers that inspired Mattannur’s name 🌄</figcaption>
+      </figure>
+      <p>Mattannur (aka Mattannoor) literally means “the land of hills and rivers” in the local Malayalam dialect (<em>mattu</em> = hill, <em>nūru</em> = place/land). Its name reflects centuries of local language, trade routes, and hill-side settlements.</p>
+    </article>
+
+    <!-- Pazhassi Raja -->
+    <article class="card pad" aria-labelledby="hist2">
+      <h3 id="hist2">Pazhassi Raja</h3>
+      <figure>
+        <img src="assets/images/pazhassi-raja-portrait.png" alt="Pazhassi Raja portrait" width="100%">
+        <figcaption>Pazhassi Raja — hero of the hills and rivers 🦁</figcaption>
+      </figure>
+      <p>Known as the “Lion of Kerala,” Pazhassi Raja led daring resistance against the British East India Company in the late 18th century. His legacy is still felt in the hills and rivers around Mattannur.</p>
+    </article>
+
+    <!-- Local Theyyam -->
+    <article class="card pad" aria-labelledby="hist3">
+      <h3 id="hist3">Local Theyyam</h3>
+      <figure>
+        <img src="assets/images/theyyam-mattannur.png" alt="Mattannur Theyyam performance" width="100%">
+        <figcaption>Vibrant Theyyam — centuries of storytelling and ritual 🔥</figcaption>
+      </figure>
+      <p>Mattannur hosts unique Theyyam performances, with dramatic costumes, face paint, and centuries-old stories. Winter temple festivals are when the magic truly comes alive.</p>
+    </article>
+
+    <!-- Colonial & Modern Era -->
+    <article class="card pad" aria-labelledby="hist4">
+      <h3 id="hist4">Colonial & Modern Era</h3>
+      <figure>
+        <img src="assets/images/mattannur-modern-placeholder.png" alt="Mattannur development overview" width="100%">
+        <figcaption>Mattannur today — blending heritage, hills, and airport energy ✈️</figcaption>
+      </figure>
+      <p>From British-era roads to the modern Kannur International Airport, Mattannur has grown from a quiet hill town into a hub connecting heritage, hills, and contemporary energy.</p>
+    </article>
+
+  </div>
+</section>
+
+
+
+
+
+  </div>
+</section>
+
 
   <section id="facts" class="section card pad" aria-labelledby="facts-h">
     <h2 id="facts-h">Quick Facts</h2>
@@ -294,7 +392,7 @@
     <p id="facts-note" class="small">Data compiled from official portals & travel references (see citations at bottom).</p>
   </section>
 
-  <section id="see" class="section">
+  <!-- <section id="see" class="section">
     <div class="grid cols-2">
       <article class="card pad" aria-labelledby="see1">
         <h2 id="see1">See & Do</h2>
@@ -313,7 +411,7 @@
         </figcaption>
       </figure>
     </div>
-  </section>
+  </section> -->
 <!--  -->
   <section id="culture" class="section">
     <div class="grid cols-3">
