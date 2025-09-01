@@ -8,7 +8,7 @@ A quirky, student-friendly website about Mattannur (Kannur, Kerala) — airport 
 - Local culture: chenda music, snacks, mini geek corner
 - Travel info: how to get there by air, road, or rail
 - Gallery of Mattannur moments
-- Contact form
+  
 
 ## How to run
 Just open `index.html` in any modern browser. No build steps needed.
